@@ -1,0 +1,202 @@
+---
+swagger: "2.0"
+info:
+  description: API para Exercício Java - Grupo Mult
+  version: 0.0.1-SNAPSHOT
+  title: API Grupo Mult
+  contact:
+    email: leandrocesar09@gmail.com
+host: virtserver.swaggerhub.com
+schemes:
+- https
+- http
+paths:
+  /cars:
+    get:
+      summary: Recuperar lista de carros
+      description: Recupera uma lista de carros
+      operationId: getCars
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: Lista de todos os carros
+          schema:
+            $ref: '#/definitions/ResponseGetCars'
+        204:
+          description: Nenhum carro encontrado
+        400:
+          description: Dados de entrada invalidos
+        500:
+          description: Erro interno no servidor
+    post:
+      summary: Adicionar um carro
+      description: Adiciona um carro ao sistema
+      operationId: addCar
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Car
+        description: Carro a ser adicionado ao sistema
+        required: false
+        schema:
+          $ref: '#/definitions/Car'
+      responses:
+        201:
+          description: Carro criado
+          schema:
+            $ref: '#/definitions/ResponseGetCarsById'
+        400:
+          description: Dados de entrada invalidos
+        409:
+          description: Carro ja existente
+        500:
+          description: Erro interno no servidor
+    put:
+      summary: Atualizar um carro pelo ID
+      description: Atualiza as informacoes de um carro de acordo com o ID informado
+      operationId: updateCar
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Car
+        description: Carro a ser atualizado no sistema
+        required: false
+        schema:
+          $ref: '#/definitions/Car'
+      responses:
+        200:
+          description: Carro atualizado
+          schema:
+            $ref: '#/definitions/ResponseGetCarsById'
+        400:
+          description: O ID informado e invalido
+        404:
+          description: Nenhum carro encontrado com o ID especificado
+        500:
+          description: Erro interno no servidor
+  /cars/{id}/{type}:
+    get:
+      summary: Recuperar carro pelo ID
+      description: Recupera as informacoes de um carro de acordo com o ID informado
+      operationId: getCarById
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: type
+        in: path
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: Informacoes de um carro encontrado
+          schema:
+            $ref: '#/definitions/ResponseGetCarsById'
+        400:
+          description: Dados de entrada invalidos
+        404:
+          description: Nenhum carro encontrado com o ID especificado
+        500:
+          description: Erro interno no servidor
+    delete:
+      summary: Remover um carro pelo ID
+      description: Remove um carro do sistema de acordo com o ID informado
+      operationId: removeCar
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+        format: int64
+      - name: type
+        in: path
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: Carro removido
+        400:
+          description: O ID informado e invalido
+        404:
+          description: Nenhum carro encontrado com o ID especificado
+        500:
+          description: Erro interno no servidor
+definitions:
+  ResponseGetCars:
+    type: object
+    properties:
+      cars:
+        type: array
+        items:
+          $ref: '#/definitions/Car'
+  ResponseGetCarsById:
+    type: object
+    properties:
+      car:
+        $ref: '#/definitions/Car'
+  Car:
+    type: object
+    required:
+    - code
+    - description
+    - type
+    - value
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Identificador
+      type:
+        $ref: '#/definitions/CarType'
+      code:
+        type: string
+        description: Codigo de referencia
+      description:
+        type: string
+        description: Descricao
+      value:
+        type: number
+        format: double
+        description: Valor atual
+      valueTax:
+        type: number
+        format: double
+        description: Valor do imposto
+      creationDate:
+        type: string
+        description: Data de criacao do cadastro
+      updateDate:
+        type: string
+        description: Data de atualizacao do cadastro
+  CarType:
+    type: object
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Identificador
+      code:
+        type: string
+        example: S001
+        description: Codigo de referencia
+      description:
+        type: string
+        description: Descricao

@@ -17,4 +17,33 @@
 	<bean id="listAnimalsByIdConverter"    class="br.com.grupomult.flows.animal.ListAnimalsByIdConverter"    />
 	<bean id="listAnimalsByIdResponse"     class="br.com.grupomult.flows.animal.ListAnimalsByIdResponse"     />
 
+    <!-- Flow: list cars -->
+    <bean id="listCarsValidate"  class="br.com.grupomult.flows.car.ListCarsValidate"  />
+    <bean id="listCarsLoad"      class="br.com.grupomult.flows.car.ListCarsLoad"      />
+    <bean id="listCarsConverter" class="br.com.grupomult.flows.car.ListCarsConverter" />
+    <bean id="listCarsResponse"  class="br.com.grupomult.flows.car.ListCarsResponse"  />
+
+    <!-- Flow: list cars by id -->
+    <bean id="listCarsByIdValidate"     class="br.com.grupomult.flows.car.ListCarsByIdValidate"     />
+    <bean id="listCarsByIdLoad"         class="br.com.grupomult.flows.car.ListCarsByIdLoad"         />
+    <bean id="listCarsByIdLoadValidate" class="br.com.grupomult.flows.car.ListCarsByIdLoadValidate" />
+    <bean id="listCarsByIdConverter"    class="br.com.grupomult.flows.car.ListCarsByIdConverter"    />
+    <bean id="listCarsByIdResponse"     class="br.com.grupomult.flows.car.ListCarsByIdResponse"     />
+
+    <!-- Flow: add cars -->
+    <bean id="addCarValidate"       class="br.com.grupomult.flows.car.AddCarValidate"       />
+    <bean id="addCarPersist"         class="br.com.grupomult.flows.car.AddCarPersist"       />
+    <bean id="addCarConverter"      class="br.com.grupomult.flows.car.AddCarConverter"      />
+    <bean id="addCarResponse"       class="br.com.grupomult.flows.car.AddCarResponse"       />
+
+    <!-- Flow: remove car -->
+    <bean id="removeCarValidate"     class="br.com.grupomult.flows.car.RemoveCarValidate"   />
+    <bean id="removeCarLoad"       class="br.com.grupomult.flows.car.RemoveCarLoad"         />
+
+    <!-- Flow: update cars -->
+    <bean id="updateCarValidate"     class="br.com.grupomult.flows.car.UpdateCarValidate"    />
+    <bean id="updateCarPersist"       class="br.com.grupomult.flows.car.UpdateCarPersist"    />
+    <bean id="updateCarConverter"    class="br.com.grupomult.flows.car.UpdateCarConverter"   />
+    <bean id="updateCarResponse"     class="br.com.grupomult.flows.car.UpdateCarResponse"    />
+
 </beans>

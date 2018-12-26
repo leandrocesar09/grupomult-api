@@ -145,6 +145,28 @@
 							<generateModelDocumentation>false</generateModelDocumentation>
 						</configuration>
 					</execution>
+					<execution>
+						<id>api-generate-sources-car</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/src/main/resources/swagger/api-car.yaml</inputSpec>
+							<language>spring</language>
+							<addCompileSourceRoot>false</addCompileSourceRoot>
+							<generateSupportingFiles>false</generateSupportingFiles>
+							<configOptions>
+								<dateLibrary>java8</dateLibrary>
+								<serializableModel>true</serializableModel>
+								<interfaceOnly>true</interfaceOnly>
+							</configOptions>
+							<output>${project.build.directory}/generated/swagger</output>
+							<modelPackage>br.com.grupomult.api.car.models</modelPackage>
+							<apiPackage>br.com.grupomult.api.car.controllers</apiPackage>
+							<generateModelDocumentation>false</generateModelDocumentation>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
