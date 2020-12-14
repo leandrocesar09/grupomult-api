@@ -5,7 +5,7 @@ Este repositório contem uma implementação de referência para auxiliar na con
 O candidato DEVE realizar o clone da branch master, criar uma nova branch, realizar a implementação e para a entrega fazer o push e solicitar um pull request para a master.
 - Padrão de nome da branch: `ft-yyyyMMdd-nome-completo`
 
-## Diagrama de atividades
+## Diagrama de atividades 
 
 O diagrama abaixo representa as atividades na implementação de um recurso REST de operação POST para manipulação de determinada representação (entidade carro, por exemplo).
 
